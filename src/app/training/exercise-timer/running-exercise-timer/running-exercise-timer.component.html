@@ -1,0 +1,46 @@
+<section
+  class="current-training"
+  fxLayout="column"
+  fxLayoutAlign="center center"
+>
+  <div *ngIf="!displaySpinner" style="margin-bottom: 110px"></div>
+  <mat-progress-spinner
+    style="margin-top: 10px"
+    *ngIf="!running && displaySpinner"
+    mode="determinate"
+    value="{{ spinnerPause }}"
+  ></mat-progress-spinner>
+  <mat-progress-spinner
+    style="margin-top: 10px"
+    mode="indeterminate"
+    *ngIf="running && displaySpinner"
+  ></mat-progress-spinner>
+  <h1 style="margin-bottom: 0; margin-top: 5px">
+    "Exercise" session in progress
+  </h1>
+  <div class="timerDisplay" #timerDisplay>
+    {{ hr }} : {{ min }} : {{ sec }} :
+    {{ ms }}
+    <div fxLayoutAlign="center" fxLayoutGap="1rem" class="buttons">
+      <button mat-button color="primary" id="pauseTimer" (click)="start()">
+        <span *ngIf="running">Pause</span>
+        <span *ngIf="!running">Play</span>
+      </button>
+      <button mat-button color="primary" id="resetTimer" (click)="reset()">
+        Reset
+      </button>
+
+      <!--    add this button logic to new training button when working-->
+      <!--      <button mat-button color="primary" id="startTimer">Start</button>-->
+    </div>
+  </div>
+  <button
+    style="margin-top: 2rem"
+    mat-raised-button
+    type="submit"
+    color="accent"
+    (click)="onStopTraining()"
+  >
+    Stop
+  </button>
+</section>

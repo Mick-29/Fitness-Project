@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CurrentTrainingComponent } from './current-training.component';
+import { ExerciseTimerComponent } from './exercise-timer.component';
 
-describe('CurrentTrainingComponent', () => {
-  let component: CurrentTrainingComponent;
-  let fixture: ComponentFixture<CurrentTrainingComponent>;
+describe('TrainingTimerComponent', () => {
+  let component: ExerciseTimerComponent;
+  let fixture: ComponentFixture<ExerciseTimerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CurrentTrainingComponent ]
+      declarations: [ ExerciseTimerComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CurrentTrainingComponent);
+    fixture = TestBed.createComponent(ExerciseTimerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,13 @@
+.current-training {
+  padding-bottom: 4rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.timerDisplay {
+  margin-top: 2rem;
+  font-size: 40px;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0,139,253,0.25);
+  padding: 20px;
+}

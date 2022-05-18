@@ -8,15 +8,17 @@ import { MaterialModule } from './material.module';
 import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
 import { TrainingComponent } from './training/training.component';
-import { CurrentTrainingComponent } from './training/current-training/current-training.component';
-import { NewTrainingComponent } from './training/new-training/new-training.component';
-import { PastTrainingComponent } from './training/past-training/past-training.component';
+import { RunningExerciseTimer } from './training/exercise-timer/running-exercise-timer/running-exercise-timer.component';
+import { NewExerciseComponent } from './training/new-exercise/new-exercise.component';
+import { PastExerciseComponent } from './training/past-exercise/past-exercise.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
-import {MatTableDataSource} from "@angular/material/table";
+import { ExerciseTimerComponent } from './training/exercise-timer/exercise-timer.component';
+import { TimerService } from './training/timer.service';
+import { TrainingService } from './training/training.service';
 
 @NgModule({
   declarations: [
@@ -24,13 +26,13 @@ import {MatTableDataSource} from "@angular/material/table";
     SignupComponent,
     LoginComponent,
     TrainingComponent,
-    CurrentTrainingComponent,
-    NewTrainingComponent,
-    PastTrainingComponent,
+    RunningExerciseTimer,
+    NewExerciseComponent,
+    PastExerciseComponent,
     WelcomeComponent,
     HeaderComponent,
     SidenavListComponent,
-
+    ExerciseTimerComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,9 +40,9 @@ import {MatTableDataSource} from "@angular/material/table";
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
-    FormsModule
+    FormsModule,
   ],
-  providers: [],
+  providers: [TimerService, TrainingService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

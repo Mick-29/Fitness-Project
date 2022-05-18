@@ -1,8 +1,21 @@
-<mat-tab-group>
-  <mat-tab label="New Exercises">
-    <app-new-training></app-new-training>
+<mat-tab-group *ngIf="!ongoingTraining">
+  <mat-tab label="Exercise Timer">
+<!--    (startTimerEvent)="startFromExerciseTimer = true"-->
+    <app-exercise-timer ></app-exercise-timer>
+  </mat-tab>
+  <mat-tab label="New Exercise">
+    <app-new-exercise></app-new-exercise>
   </mat-tab>
   <mat-tab label="Past Exercises">
-    <app-past-training></app-past-training>
+    <app-past-exercise></app-past-exercise>
   </mat-tab>
 </mat-tab-group>
+<!--[startTimerFromParent]="startFromExerciseTimer"-->
+<app-running-exercise-timer
+  *ngIf="ongoingTraining"
+  (trainingStopEvent)="ongoingTraining = false"
+></app-running-exercise-timer>
+
+<!--<div>-->
+<!--  <button (click)="startFromExerciseTimer = true; ongoingTraining = true">Start Training</button>-->
+<!--</div>-->
