@@ -10,12 +10,7 @@
     <app-past-exercise></app-past-exercise>
   </mat-tab>
 </mat-tab-group>
-<!--[startTimerFromParent]="startFromExerciseTimer"-->
 <app-running-exercise-timer
   *ngIf="ongoingTraining"
   (trainingStopEvent)="ongoingTraining = false"
 ></app-running-exercise-timer>
-
-<!--<div>-->
-<!--  <button (click)="startFromExerciseTimer = true; ongoingTraining = true">Start Training</button>-->
-<!--</div>-->

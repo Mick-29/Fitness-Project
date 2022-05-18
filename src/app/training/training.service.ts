@@ -2,8 +2,6 @@ import { Exercise } from './exercise.model';
 import { Subject } from 'rxjs';
 
 export class TrainingService {
-  // private startTimerFromOutside = new Subject<boolean>();
-  // startTimer$ = this.startTimerFromOutside.asObservable();
 
   exerciseChanged = new Subject<Exercise>();
   private availableExercises: Exercise[] = [
@@ -55,8 +53,4 @@ export class TrainingService {
     );
     this.exerciseChanged.next({ ...this.runningExercise });
   }
-
-  // startTimer(start: boolean) {
-  //   this.startTimerFromOutside.next(start);
-  // }
 }

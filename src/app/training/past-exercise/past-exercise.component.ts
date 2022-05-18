@@ -8,8 +8,6 @@ import { MatSort } from '@angular/material/sort';
   styleUrls: ['./past-exercise.component.css'],
 })
 export class PastExerciseComponent implements OnInit, AfterViewInit {
-  // displayedColumns: string[] = ['id', 'name', 'calories', 'duration', 'state'];
-  // dataSource = new MatTableDataSource<Exercise>();
   displayedColumns: string[] = ['id', 'name', 'calories', 'duration', 'state'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -19,11 +17,5 @@ export class PastExerciseComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {}
 
   ngAfterViewInit() {
-    // this.dataSource.sort = this.sort;
-    // this.dataSource.paginator = this.paginator;
   }
-
-  // doFilter(filterValue: string) {
-  //   // this.dataSource.filter = filterValue.trim().toLowerCase();
-  // }
 }

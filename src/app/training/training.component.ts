@@ -10,7 +10,6 @@ import { TrainingService } from './training.service';
 export class TrainingComponent implements OnInit {
   ongoingTraining = false;
   exerciseSubscription: Subscription;
-  // startFromExerciseTimer: any;
 
   constructor(private trainingService: TrainingService) {}
 
