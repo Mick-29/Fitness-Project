@@ -2,7 +2,6 @@ import { Exercise } from './exercise.model';
 import { Subject } from 'rxjs';
 
 export class TrainingService {
-
   exerciseChanged = new Subject<Exercise>();
   private availableExercises: Exercise[] = [
     {
@@ -41,7 +40,9 @@ export class TrainingService {
       state: 'completed',
     },
   ];
+  private manualExercise: Exercise;
   private runningExercise: Exercise;
+  private exercises: Exercise[] = [];
 
   getAvailableExercises() {
     return this.availableExercises.slice();
@@ -52,5 +53,19 @@ export class TrainingService {
       (ex) => ex.id === selectedId
     );
     this.exerciseChanged.next({ ...this.runningExercise });
+  }
+
+  getNewExercise() {
+    this.exercises.push({
+      ...this.manualExercise,
+      date: new Date(),
+      state: 'completed',
+    });
+    this.manualExercise = null;
+    this.exerciseChanged.next(null);
+  }
+
+  getLatestExercises() {
+    return this.exercises.slice();
   }
 }

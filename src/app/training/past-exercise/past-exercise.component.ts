@@ -1,6 +1,9 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { Exercise } from '../exercise.model';
+import { TrainingService } from '../training.service';
 
 @Component({
   selector: 'app-past-exercise',
@@ -8,14 +11,23 @@ import { MatSort } from '@angular/material/sort';
   styleUrls: ['./past-exercise.component.css'],
 })
 export class PastExerciseComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['id', 'name', 'calories', 'duration', 'state'];
+  displayedColumns: string[] = [
+    'date',
+    'name',
+    'calories',
+    'duration',
+    'state',
+  ];
+  dataSource = new MatTableDataSource<Exercise>();
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor() {}
+  constructor(private trainingService: TrainingService) {}
 
-  ngOnInit(): void {}
-
-  ngAfterViewInit() {
+  ngOnInit(): void {
+    this.dataSource.data = this.trainingService.getLatestExercises();
   }
+
+  ngAfterViewInit() {}
 }
